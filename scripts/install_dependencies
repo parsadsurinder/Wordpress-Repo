@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install necessary packages
+sudo apt update -y
 sudo apt install apache2 wget cron unzip nfs-common -y
 sudo bash -c "cd /var/www/html && mv index.html index.html.old"
 sudo a2enmod rewrite
