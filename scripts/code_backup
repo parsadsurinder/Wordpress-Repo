@@ -1,7 +1,7 @@
 #!/bin/bash
 # Define the source directory (replace with your actual path)
 SOURCE_DIR1="/var/www/html"
-SOURCE_DIR2="/path/to/second/source"
+SOURCE_DIR2="/etc/apache2/sites-available"
 
 # Get the current date in the format YYYY-MM-DD
 CURRENT_DATE=$(date +%F)
