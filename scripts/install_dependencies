@@ -17,6 +17,8 @@ sudo systemctl restart apache2
 sudo a2enconf phpmyadmin
 sudo systemctl restart apache2
 
+# Mount EFS
+sudo bash -c "mount -t fs-05dfa2f808d330269.efs.us-west-2.amazonaws.com:/ /var/www/html && sudo mount -a "
 
 # Ensure EFS is mounted
 line_to_add="fs-05dfa2f808d330269.efs.us-west-2.amazonaws.com:/ /var/www/html nfs4 defaults 0 0"
