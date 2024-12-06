@@ -27,3 +27,30 @@
 
 # # Check if line exists, and if not, add it
 # grep -qxF "$line_to_add" "$file_path" || echo "$line_to_add" >> "$file_path"
+
+# Only install WordPress if it's not already present
+if [ ! -f /var/www/html/wp-config.php ]; then
+  echo "Installing WordPress..."
+  sudo bash -c "cd /var/www/html && wget https://wordpress.org/latest.zip"
+  sudo unzip /var/www/html/latest.zip -d /var/www/html/
+  sudo mv /var/www/html/wordpress/* /var/www/html/
+  sudo bash -c "cd /var/www/html && rm -rf wordpress latest.zip"
+fi
+
+# Set proper permissions for WordPress files (ensuring www-data has access)
+sudo chmod -R 755 /var/www/html
+sudo chown -R www-data:www-data /var/www/html
+
+# Ensure wp-config.php exists (if not, create an empty one)
+sudo touch /var/www/html/wp-config.php
+sudo chown -R www-data:www-data /var/www/html/wp-config.php
+
+# Enable Apache site configuration
+sudo bash -c "cd /etc/apache2/sites-available && a2ensite 000-default.conf"
+sudo systemctl restart apache2
+
+
+echo "WordPress installation completed."
+else
+    echo "WordPress is already installed."
+fi
