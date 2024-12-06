@@ -10,6 +10,9 @@ files:
 file_exists_behavior: OVERWRITE
 hooks:
   BeforeInstall:
+    - location: scripts/code_backup  # Backup files before installing
+      timeout: 300
+      runas: root
     - location: scripts/install_dependencies
       timeout: 300
       runas: root

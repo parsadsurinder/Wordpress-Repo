@@ -1,0 +1,13 @@
+#!/bin/bash
+# Define the source directory (replace with your actual path)
+SOURCE_DIR="/var/www/html"
+
+# Get the current date in the format YYYY-MM-DD
+CURRENT_DATE=$(date +%F)
+
+# Create a new directory with the current date as the name
+DEST_DIR="/code_backup/$CURRENT_DATE"
+mkdir -p "$DEST_DIR"
+
+# Copy all files from the source directory to the new directory
+cp -r "$SOURCE_DIR"/* "$DEST_DIR"
