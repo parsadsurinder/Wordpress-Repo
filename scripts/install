@@ -1,0 +1,29 @@
+#!/bin/bash
+# efs_dns_name="${fs-0c4aa8e5f6bf64554.efs.us-west-2.amazonaws.com}"
+# mount_point="/var/www/html/wordpress/wp-content"
+# sudo bash -c "mount -t fs-05dfa2f808d330269.efs.us-west-2.amazonaws.com:/ /var/www/html && sudo mount -a "
+# # Check if the EFS entry is already in /etc/fstab
+# grep -r 'fs-0c4aa8e5f6bf64554.efs.us-west-2.amazonaws.com' /etc/fstab
+
+# if [ $? -ne 0 ]; then
+#     # If the entry doesn't exist, add it
+#     echo "fs-0c4aa8e5f6bf64554.efs.us-west-2.amazonaws.com:/ /var/www/html/wordpress/wp-content nfs4 defaults 0 0" >> /etc/fstab"
+# fi
+# Check if the EFS entry is already in /etc/fstab (be more precise)
+# echo "Checking if EFS entry is already in /etc/fstab..."
+# grep -q "^[^#]*$efs_dns_name" /etc/fstab
+
+# # Capture the exit status of grep
+# if [ $? -ne 0 ]; then
+#     # If the entry doesn't exist, add it
+#     echo "EFS entry not found. Adding entry to /etc/fstab."
+#     echo "${efs_dns_name}:/ $mount_point nfs4 defaults 0 0" >> /etc/fstab
+# else
+#     echo "EFS entry already exists in /etc/fstab. No action needed."
+# fi
+# grep -qxF 'fs-0c4aa8e5f6bf64554.efs.us-west-2.amazonaws.com' /etc/fstab || echo 'fs-0c4aa8e5f6bf64554.efs.us-west-2.amazonaws.com' >> /etc/fstab
+# line_to_add="fs-0c4aa8e5f6bf64554.efs.us-west-2.amazonaws.com:/ /var/www/html/wordpress/wp-content nfs4 defaults 0 0"
+# file_path="/etc/fstab"
+
+# # Check if line exists, and if not, add it
+# grep -qxF "$line_to_add" "$file_path" || echo "$line_to_add" >> "$file_path"

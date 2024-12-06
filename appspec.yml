@@ -1,0 +1,26 @@
+version: 0.0
+os: linux
+files:
+  - source: /wp-config.php
+    destination: /var/www/html
+  - source: /000-default.conf
+    destination: /etc/apache2/sites-available
+  - source: /.htaccess
+    destination: /var/www/html
+file_exists_behavior: OVERWRITE
+hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies
+      timeout: 300
+      runas: root
+    - location: scripts/start_server
+      timeout: 300
+      runas: root
+  Install:
+    - location: scripts/install
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server
+      timeout: 300
+      runas: root
