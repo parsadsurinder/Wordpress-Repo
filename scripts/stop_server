@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Stop nginx service
-sudo systemctl stop nginx
-sudo systemctl disable nginx
+# sudo systemctl stop nginx
+# sudo systemctl disable nginx
 
 # Check if Apache is running
 isExistApp=$(pgrep apache2)
