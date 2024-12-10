@@ -1,6 +1,6 @@
 #!/bin/bash
 # Define the source directory (replace with your actual path)
-SOURCE_DIR1="/var/www/html"
+SOURCE_DIR="/var/www/html"
 # SOURCE_DIR2="/etc/apache2/sites-available"
 
 # Get the current date in the format YYYY-MM-DD
@@ -11,7 +11,7 @@ DEST_DIR="/code_backup/$CURRENT_DATE"
 mkdir -p "$DEST_DIR"
 
 # Copy all files from the first source directory to the new directory
-cp -r "$SOURCE_DIR1"/* "$DEST_DIR"
+cp -r "$SOURCE_DIR"/* "$DEST_DIR"
 
 # Copy all files from the second source directory to the new directory
 # cp -r "$SOURCE_DIR2"/* "$DEST_DIR"
